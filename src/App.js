@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Routes eklenmeli
+
+import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
+
+const App = () => {
+    return (
+        <Router>
+            <div>
+                <Routes> {/* Switch yerine Routes kullanılıyor */}
+                    <Route path="/" exact element={<Login />} />
+                    <Route path="/main" element={<Main />} />
+                </Routes>
+            </div>
+        </Router>
+    );
+};
 
 export default App;
